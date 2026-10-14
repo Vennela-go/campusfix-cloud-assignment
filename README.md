@@ -1,8 +1,7 @@
 # CampusFix — Cloud Computing CI/CD Assignment
 
 **Project:** CampusFix Smart Campus Issue Tracker  
-**Team:** Vennela Godari (Lead), Gopi Bhukya, Saipuja Vadla *(edit if your official team details differ)*  
-**Deadline:** 15 October 2026
+
 
 ## What it does
 CampusFix lets students report campus issues (classroom, Wi-Fi, water, electrical, lab equipment, other), see the issue board, change status (Open / In Progress / Resolved), and delete reports. It has a responsive browser UI and a small JSON REST API. Three example issues are loaded at startup. **Data is stored in memory and resets when the process restarts**; persistence is intentionally out of scope for this beginner CI/CD demonstration.
