@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: campusfix
+  labels:
+    app: campusfix
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: campusfix
+  template:
+    metadata:
+      labels:
+        app: campusfix
+    spec:
+      containers:
+        - name: campusfix
+          image: YOUR_DOCKERHUB_USERNAME/campusfix:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
